@@ -25,30 +25,25 @@ struct RecycleView: View {
             .navigationTitle("Recycle")
             
             
-            
-            VStack{
-                Button(action: {
-                    if uiImage != nil {
-                        classifier.detect(uiImage: uiImage!)
-                    }
-                }) {
+                HStack{
                     Image(systemName: "arrow.3.trianglepath")
                         .foregroundColor(.green)
                         .font(.title)
-                }
-                
-                
                 Group {
+                    
                     if let imageClass = classifier.imageClass {
-                        HStack{
-                            Text("Image categories:")
+                        VStack{
+                            Text("")
                                 .font(.caption)
                             Text(imageClass)
                                 .bold()
+                            if imageClass == "water bottle" {
+                                Text("Recycle water bottles by placing it in the yellow lid bin.")
+                            }
                         }
                     } else {
                         HStack{
-                            Text("Image categories: NA")
+                            Text("Scan, Recycle, Repeat!")
                                 .font(.caption)
                         }
                     }
