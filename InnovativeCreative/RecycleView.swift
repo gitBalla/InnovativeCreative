@@ -3,11 +3,23 @@ import SwiftUI
 struct RecycleView: View {
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.blue
+            VStack{
+                Rectangle()
+                  .strokeBorder()
+                  .foregroundColor(.black)
+                HStack{
+                  Text("Scan")
+                  Image(systemName: "camera.viewfinder")
+                }
+              
+              .font(.largeTitle)
+              .foregroundColor(.blue)
             }
+            .padding()
             .navigationTitle("Recycle")
         }
+        
+        
     }
 }
 
