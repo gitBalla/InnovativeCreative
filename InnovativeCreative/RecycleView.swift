@@ -24,22 +24,42 @@ struct RecycleView: View {
             .padding()
             .navigationTitle("Recycle")
             
+                RoundedRectangle(cornerRadius: 4)
+                    .strokeBorder()
+                    .foregroundColor(.white)
+                    .overlay(
+                        Group {
+                            if uiImage != nil {
+                                Image(uiImage: uiImage!)
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                    )
             
                 HStack{
                     Image(systemName: "arrow.3.trianglepath")
                         .foregroundColor(.green)
                         .font(.title)
+                        .background(RoundedRectangle(cornerRadius: 4).stroke().fill())
                 Group {
                     
                     if let imageClass = classifier.imageClass {
                         VStack{
-                            Text("")
-                                .font(.caption)
+                            HStack{
                             Text(imageClass)
                                 .bold()
+                                .frame(alignment: .leading)
+                            Text("More tips")
+                                    .foregroundColor(.blue)
+                                    .padding()
+                                    .font(.caption)
+                                    
+                            }
                             if imageClass == "water bottle" {
                                 Text("Recycle water bottles by placing it in the yellow lid bin.")
                             }
+                            
                         }
                     } else {
                         HStack{
