@@ -15,7 +15,7 @@ struct ContentView: View {
                     Image(systemName: "leaf")
                     Text("Activity")
                 }
-            RecycleView()
+            RecycleView( classifier: ImageClassifier())
                 .tabItem {
                     Image(systemName: "arrow.3.trianglepath")
                     Text("Recycle")
