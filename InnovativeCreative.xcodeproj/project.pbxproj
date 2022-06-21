@@ -87,8 +87,8 @@
 		D883012B2861839D009865C7 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				E146890A2861F78C00F371A2 /* ImageClassifier.swift */,
 				E146890C2861F7AE00F371A2 /* Classifier.swift */,
+				E146890A2861F78C00F371A2 /* ImageClassifier.swift */,
 				D883012C2861839D009865C7 /* Preview Assets.xcassets */,
 				E14689172862106600F371A2 /* MobileNetV2.mlmodel */,
 			);

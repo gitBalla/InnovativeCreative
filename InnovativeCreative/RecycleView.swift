@@ -9,6 +9,7 @@ struct RecycleView: View {
 
     var body: some View {
         NavigationView {
+            VStack{
                 HStack{
                   Text("Scan")
                   Image(systemName: "camera.viewfinder")
@@ -23,14 +24,16 @@ struct RecycleView: View {
             .padding()
             .navigationTitle("Recycle")
             
+            
+            
             VStack{
                 Button(action: {
                     if uiImage != nil {
                         classifier.detect(uiImage: uiImage!)
                     }
                 }) {
-                    Image(systemName: "bolt.fill")
-                        .foregroundColor(.orange)
+                    Image(systemName: "arrow.3.trianglepath")
+                        .foregroundColor(.green)
                         .font(.title)
                 }
                 
@@ -53,6 +56,7 @@ struct RecycleView: View {
                 .font(.subheadline)
                 .padding()
                 
+            }
             }
         }
         
