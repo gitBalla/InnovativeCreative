@@ -22,8 +22,49 @@ struct RecycleView: View {
               .background(RoundedRectangle(cornerRadius: 4).stroke())
             .padding()
             .navigationTitle("Recycle")
+            
+            VStack{
+                Button(action: {
+                    if uiImage != nil {
+                        classifier.detect(uiImage: uiImage!)
+                    }
+                }) {
+                    Image(systemName: "bolt.fill")
+                        .foregroundColor(.orange)
+                        .font(.title)
+                }
+                
+                
+                Group {
+                    if let imageClass = classifier.imageClass {
+                        HStack{
+                            Text("Image categories:")
+                                .font(.caption)
+                            Text(imageClass)
+                                .bold()
+                        }
+                    } else {
+                        HStack{
+                            Text("Image categories: NA")
+                                .font(.caption)
+                        }
+                    }
+                }
+                .font(.subheadline)
+                .padding()
+                
+            }
         }
         
+        .sheet(isPresented: $isPresenting){
+            ImagePicker(uiImage: $uiImage, isPresenting:  $isPresenting, sourceType: $sourceType)
+                .onDisappear{
+                    if uiImage != nil {
+                        classifier.detect(uiImage: uiImage!)
+                    }
+                }
+            
+        }
     }
 }
 
