@@ -4,6 +4,7 @@ struct RecycleView: View {
     @State var isPresenting: Bool = false
     @State var uiImage: UIImage?
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State var showingPopover = false
     
     @ObservedObject var classifier: ImageClassifier
 
@@ -50,11 +51,18 @@ struct RecycleView: View {
                             Text(imageClass)
                                 .bold()
                                 .frame(alignment: .leading)
-                            Text("More tips")
+                            
+                                Button("More tips"){
+                                showingPopover = true
+                                }
                                     .foregroundColor(.blue)
                                     .padding()
                                     .font(.caption)
-                                    
+                                    .popover(isPresented:$showingPopover) {
+                                        Text("Water bottle")
+                                            .font(.headline)
+                                            .padding()
+                                    }
                             }
                             if imageClass == "water bottle" {
                                 Text("Recycle water bottles by placing it in the yellow lid bin.")
