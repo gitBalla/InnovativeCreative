@@ -16,7 +16,7 @@ class FetchUserData: ObservableObject {
         fetching = true
         
         // Uncomment line below, run once, and comment again to load sample data.
-        //saveSampleData()
+        saveSampleData()
         
         // Fetch data from UserDefaults
         let defaults = UserDefaults.standard
