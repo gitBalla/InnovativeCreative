@@ -39,7 +39,7 @@ struct RecycleView: View {
                     )
             
                 HStack{
-                    Image(systemName: "arrow.3.trianglepath")
+                    Text("♻️")
                         .foregroundColor(.green)
                         .font(.title)
                         .background(RoundedRectangle(cornerRadius: 4).stroke().fill())
@@ -49,8 +49,9 @@ struct RecycleView: View {
                         VStack{
                             HStack{
                             Text(imageClass)
+                                    .font(.title)
                                 .bold()
-                                .frame(alignment: .leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             
                                 Button("More tips"){
                                 showingPopover = true
@@ -58,21 +59,59 @@ struct RecycleView: View {
                                     .foregroundColor(.blue)
                                     .padding()
                                     .font(.caption)
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
                                     .popover(isPresented:$showingPopover) {
-                                        Text("Water bottle")
-                                            .font(.headline)
+                                        VStack{
+                                        HStack{
+                                            Image(systemName: "drop.circle")
+                                                .foregroundColor(.blue)
+                                                .font(.title)
+                                            Text("Water bottle")
+                                            .font(.largeTitle)
                                             .padding()
+                                        }
+                                            HStack{
+                                                Text ("♻️")
+                                                    .font(.largeTitle)
+                                                Text ("Recycle water bottles by placing it in the yellow lid bin.")
+                                                    .padding()
+                                                    .font(.headline)
+                                            }
+                                            HStack{
+                                                Text ("🌵")
+                                                    .font(.largeTitle)
+                                            Text ("Empty out any remaining liquid to avoid contamination during recycling.")
+                                                .padding()
+                                                .font(.headline)
+                                            }
+                                            HStack{
+                                                Text ("💪")
+                                                    .font(.largeTitle)
+                                            Text ("Crush plastic bottles to ensure that more items can be recycled.")
+                                                .padding()
+                                                .font(.headline)
+                                            }
+                                            HStack{
+                                                Text ("🍾")
+                                                    .font(.largeTitle)
+                                            Text("Remove lids and labels, this may vary depending on your local council.")
+                                                .padding()
+                                                .font(.headline)
+                                            }
+                                        }
                                     }
                             }
                             if imageClass == "water bottle" {
                                 Text("Recycle water bottles by placing it in the yellow lid bin.")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    
                             }
                             
                         }
                     } else {
                         HStack{
                             Text("Scan, Recycle, Repeat!")
-                                .font(.caption)
+                                .font(.body)
                         }
                     }
                 }
