@@ -41,8 +41,7 @@ struct RecycleView: View {
                 HStack{
                     Text("♻️")
                         .foregroundColor(.green)
-                        .font(.title)
-                        .background(RoundedRectangle(cornerRadius: 4).stroke().fill())
+                        .font(.largeTitle)
                 Group {
                     
                     if let imageClass = classifier.imageClass {

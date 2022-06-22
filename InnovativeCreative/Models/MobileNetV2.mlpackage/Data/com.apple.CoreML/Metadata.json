@@ -1,0 +1,10 @@
+{
+  "MLModelDescriptionKey" : "Detects the dominant objects present in an image from a set of 1001 categories such as trees, animals, food, vehicles, person etc. The top-1 accuracy from the original publication is 74.7%.",
+  "MLModelCreatorDefinedKey" : {
+    "com.apple.developer.machine-learning.models.version" : "1.0",
+    "com.apple.developer.machine-learning.models.name" : "MobileNetV2.mlmodel",
+    "com.apple.developer.machine-learning.models.category" : "image"
+  },
+  "MLModelAuthorKey" : "Original Paper: Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zhmoginov, Liang-Chieh Chen. ",
+  "MLModelLicenseKey" : "Please see https:\/\/github.com\/tensorflow\/tensorflow for license information, and https:\/\/github.com\/tensorflow\/models\/tree\/master\/research\/slim\/nets\/mobilenet for the original source of the model."
+}
