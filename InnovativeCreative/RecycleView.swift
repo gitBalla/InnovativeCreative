@@ -1,10 +1,61 @@
 import SwiftUI
 
+struct DismissingView1: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    
+    var body: some View {
+            VStack{
+            HStack{
+                Image(systemName: "drop.circle")
+                    .foregroundColor(.blue)
+                    .font(.title)
+                Text("Water bottle")
+                .font(.largeTitle)
+                .padding()
+            }
+                HStack{
+                    Text ("♻️")
+                        .font(.largeTitle)
+                    Text ("Recycle water bottles by placing it in the yellow lid bin.")
+                        .padding()
+                        .font(.headline)
+                }
+                HStack{
+                    Text ("🌵")
+                        .font(.largeTitle)
+                Text ("Empty out any remaining liquid to avoid contamination during recycling.")
+                    .padding()
+                    .font(.headline)
+                }
+                HStack{
+                    Text ("💪")
+                        .font(.largeTitle)
+                Text ("Crush plastic bottles to ensure that more items can be recycled.")
+                    .padding()
+                    .font(.headline)
+                }
+                HStack{
+                    Text ("🍾")
+                        .font(.largeTitle)
+                Text("Remove lids and labels, this may vary depending on your local council.")
+                    .padding()
+                    .font(.headline)
+                
+            }
+                Button("Exit") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+        }
+    }
+}
+
 struct RecycleView: View {
     @State var isPresenting: Bool = false
     @State var uiImage: UIImage?
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State var showingPopover = false
+    
     
     @ObservedObject var classifier: ImageClassifier
 
@@ -59,45 +110,8 @@ struct RecycleView: View {
                                     .padding()
                                     .font(.caption)
                                     .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .popover(isPresented:$showingPopover) {
-                                        VStack{
-                                        HStack{
-                                            Image(systemName: "drop.circle")
-                                                .foregroundColor(.blue)
-                                                .font(.title)
-                                            Text("Water bottle")
-                                            .font(.largeTitle)
-                                            .padding()
-                                        }
-                                            HStack{
-                                                Text ("♻️")
-                                                    .font(.largeTitle)
-                                                Text ("Recycle water bottles by placing it in the yellow lid bin.")
-                                                    .padding()
-                                                    .font(.headline)
-                                            }
-                                            HStack{
-                                                Text ("🌵")
-                                                    .font(.largeTitle)
-                                            Text ("Empty out any remaining liquid to avoid contamination during recycling.")
-                                                .padding()
-                                                .font(.headline)
-                                            }
-                                            HStack{
-                                                Text ("💪")
-                                                    .font(.largeTitle)
-                                            Text ("Crush plastic bottles to ensure that more items can be recycled.")
-                                                .padding()
-                                                .font(.headline)
-                                            }
-                                            HStack{
-                                                Text ("🍾")
-                                                    .font(.largeTitle)
-                                            Text("Remove lids and labels, this may vary depending on your local council.")
-                                                .padding()
-                                                .font(.headline)
-                                            }
-                                        }
+                                    .sheet(isPresented: $showingPopover){
+                                        DismissingView1()
                                     }
                             }
                             if imageClass == "water bottle" {
