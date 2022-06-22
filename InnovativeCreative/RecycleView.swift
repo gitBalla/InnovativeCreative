@@ -1,3 +1,12 @@
+//
+//  RecycleView.swift
+//  InnovativeCreative
+//
+//  Created by Nicholas on 21/6/22.
+//
+// ML camera functionality based off Leon Wei's blog
+// https://posturenet.app/blog/object-recognition-with-coreml-vision-and-swiftui-on-ios
+
 import SwiftUI
 
 struct DismissingView1: View {
