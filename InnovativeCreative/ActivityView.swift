@@ -48,9 +48,78 @@ struct ActivityView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                ActivityRingView(progress: $totalPoints)
-                    .fixedSize()
+            Form {
+                Section {
+                    VStack {
+                        HStack {
+                            Text("Hi Pranav")
+                                .font(.title)
+                                .bold()
+                            Spacer()
+                        }
+                        HStack {
+                            Text("Ready to make a difference to our planet?")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                                .italic()
+                            Spacer()
+                        }
+                    }
+                }
+                Section {
+
+                    VStack {
+                        HStack {
+                            Text("Activity")
+                                .font(.headline)
+                                .bold()
+                            Spacer()
+                        }
+                        HStack {
+                            Text("Today")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                                .italic()
+                            Spacer()
+                        }
+                    }
+                    HStack {
+                        VStack {
+                            Text("Materials")
+                                .font(.title3)
+                            Text("Plastic")
+                                .font(.body)
+                            Text("1/5 points")
+                                .font(.body)
+                            Text("Glass")
+                                .font(.body)
+                            Text("0/3 points")
+                                .font(.body)
+                            Text("Other")
+                                .font(.body)
+                            Text("0/3 points")
+                                .font(.body)
+                        }
+                        padding()
+                        ZStack {
+                            ActivityRingView(progress: $totalPoints)
+                                .fixedSize(horizontal: false, vertical: false)
+                        }
+                    }
+                }
+                Section {
+                    HStack {
+                        Text("Recent")
+                            .font(.headline)
+                            .bold()
+                    }
+                    VStack {
+                        Text("Plastic")
+                        Text("Today 4:04PM")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                }
             }
             .navigationTitle("Activity")
         }
